@@ -14,11 +14,14 @@ if (empty($_POST["email"])) {
     $errorMSG .= "Email is required ";
 } else {
     $email = $_POST["email"];
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL) || preg_match("/[\r\n]/", $email)) {
+        $errorMSG .= "A valid email is required ";
+    }
 }
 
 // MSG Guest
 if (empty($_POST["guest"])) {
-    $errorMSG .= "Subject is required ";
+    $errorMSG .= "Guest count is required ";
 } else {
     $guest = $_POST["guest"];
 }
@@ -26,7 +29,7 @@ if (empty($_POST["guest"])) {
 
 // MSG Event
 if (empty($_POST["event"])) {
-    $errorMSG .= "Subject is required ";
+    $errorMSG .= "Event is required ";
 } else {
     $event = $_POST["event"];
 }
@@ -39,6 +42,12 @@ if (empty($_POST["message"])) {
     $message = $_POST["message"];
 }
 
+
+// Stop before building or sending an email when required fields are invalid.
+if ($errorMSG !== "") {
+    echo $errorMSG;
+    exit;
+}
 
 $EmailTo = "armanmia7@gmail.com";
 $Subject = "New Message Received";
