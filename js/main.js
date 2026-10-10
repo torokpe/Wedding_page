@@ -199,7 +199,7 @@
         var countdown = document.querySelector('.countdown');
 
         function getTimeRemaining(endtime) {
-            var t = Date.parse(endtime) - Date.parse(new Date());
+            var t = Math.max(0, endtime.getTime() - Date.now());
             var seconds = Math.floor((t / 1000) % 60);
             var minutes = Math.floor((t / 1000 / 60) % 60);
             var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
@@ -255,11 +255,11 @@
                     clearInterval(timeinterval);
                 }
             }
-            updateClock();
             var timeinterval = setInterval(updateClock, 1000);
+            updateClock();
         }
-        // set your wedding date here
-        var deadline = 'November 28 2023 17:30:00 GMT+0300';
+        // Countdown to the start of the wedding date in the visitor's local time.
+        var deadline = new Date(2027, 8, 14);
         if (countdown) {
             initializeClock('timer', deadline);
         }
