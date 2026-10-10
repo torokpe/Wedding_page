@@ -12,18 +12,10 @@ $("#contactForm").validator().on("submit", function (event) {
 
 
 function submitForm(){
-    // Initiate Variables With Form Content
-    var name = $("#name").val();
-    var email = $("#email").val();
-    var guest = $("#guest").val();
-    var event = $("#event").val();
-    var message = $("#message").val();
-
-
     $.ajax({
         type: "POST",
         url: "php/form-process.php",
-        data: { name: name, email: email, guest: guest, event: event, message: message },
+        data: $("#contactForm").serialize(),
         success : function(text){
             if (text == "success"){
                 formSuccess();

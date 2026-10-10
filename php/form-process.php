@@ -1,6 +1,13 @@
 <?php
 
 $errorMSG = "";
+$formType = $_POST["form_type"] ?? "contact";
+
+if (!in_array($formType, ["contact", "rsvp"], true)) {
+    http_response_code(400);
+    echo "Invalid form type.";
+    exit;
+}
 
 // NAME
 if (empty($_POST["name"])) {
@@ -19,27 +26,25 @@ if (empty($_POST["email"])) {
     }
 }
 
-// MSG Guest
-if (empty($_POST["guest"])) {
-    $errorMSG .= "Guest count is required ";
-} else {
-    $guest = $_POST["guest"];
-}
+if ($formType === "rsvp") {
+    if (empty($_POST["guest"]) || !in_array($_POST["guest"], ["1", "2", "3", "4", "5"], true)) {
+        $errorMSG .= "Please select a valid guest count. ";
+    } else {
+        $guest = $_POST["guest"];
+    }
 
-
-// MSG Event
-if (empty($_POST["event"])) {
-    $errorMSG .= "Event is required ";
-} else {
-    $event = $_POST["event"];
+    if (empty($_POST["event"]) || !in_array($_POST["event"], ["yes", "no"], true)) {
+        $errorMSG .= "Please select whether you can attend. ";
+    } else {
+        $event = $_POST["event"];
+    }
 }
 
 
 // MESSAGE
-if (empty($_POST["message"])) {
-    $errorMSG .= "Message is required ";
-} else {
-    $message = $_POST["message"];
+$message = trim($_POST["message"] ?? "");
+if ($formType === "contact" && $message === "") {
+    $errorMSG .= "Message is required. ";
 }
 
 
@@ -50,7 +55,7 @@ if ($errorMSG !== "") {
 }
 
 $EmailTo = "armanmia7@gmail.com";
-$Subject = "New Message Received";
+$Subject = $formType === "rsvp" ? "Wedding RSVP Received" : "New Wedding Website Message";
 
 // prepare email body text
 $Body = "";
@@ -60,14 +65,16 @@ $Body .= "\n";
 $Body .= "Email: ";
 $Body .= $email;
 $Body .= "\n";
-$Body .= "guest: ";
-$Body .= $guest;
-$Body .= "\n";
-$Body .= "event: ";
-$Body .= $event;
-$Body .= "\n";
+if ($formType === "rsvp") {
+    $Body .= "Guests: ";
+    $Body .= $guest;
+    $Body .= "\n";
+    $Body .= "Attending: ";
+    $Body .= $event;
+    $Body .= "\n";
+}
 $Body .= "Message: ";
-$Body .= $message;
+$Body .= $message !== "" ? $message : "(none)";
 $Body .= "\n";
 
 // send email
