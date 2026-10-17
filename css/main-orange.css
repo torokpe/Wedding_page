@@ -11966,7 +11966,7 @@ body.offcanvas {
 .heading h2, .heading .h2 {
   margin-bottom: 10px;
   line-height: 1.5;
-  font-family: "Great Vibes", cursive;
+  font-family: "Caveat", cursive;
   font-size: 50px;
   color: #ff9800;
 }
@@ -12095,11 +12095,11 @@ img {
 }
 .navbar-brand {
   color: #fff;
-  font-family: "Great Vibes", cursive;
+  font-family: "Caveat", cursive;
 }
 .navbar .offcanvas-title {
   font-size: 28px;
-  font-family: "Great Vibes", cursive;
+  font-family: "Caveat", cursive;
 }
 .navbar .nav-link {
   position: relative;
@@ -12167,7 +12167,7 @@ img {
 }
 .banner_bottom h2, .banner_bottom .h2 {
   margin: 0;
-  font-family: "Great Vibes", cursive;
+  font-family: "Caveat", cursive;
   font-size: 60px;
   color: #fff;
 }
@@ -12184,7 +12184,7 @@ img {
   color: #fff;
 }
 .banner-text_names {
-  font-family: "Great Vibes", cursive;
+  font-family: "Caveat", cursive;
   font-size: 40px;
   line-height: 43px;
   position: relative;
@@ -12212,7 +12212,7 @@ img {
 .banner .h2 {
   margin-bottom: 20px;
   color: #fff;
-  font-family: "Great Vibes", cursive;
+  font-family: "Caveat", cursive;
   font-size: 60px;
 }
 .banner p {
@@ -12357,7 +12357,7 @@ img {
 }
 .timer .timer-item_text {
   color: #fff;
-  font-family: "Great Vibes", cursive;
+  font-family: "Caveat", cursive;
   font-size: 34px;
 }
 .timer .timer-item {
@@ -12792,7 +12792,7 @@ img {
   margin-bottom: 0;
   text-transform: lowercase;
   color: #fff;
-  font-family: "Great Vibes", cursive;
+  font-family: "Caveat", cursive;
   font-size: 30px;
 }
 @media (min-width: 768px) {
@@ -13064,7 +13064,7 @@ img {
 }
 .single-post_title {
   margin-bottom: 40px;
-  font-family: "Great Vibes", cursive;
+  font-family: "Caveat", cursive;
 }
 
 .post-content blockquote {
@@ -13107,7 +13107,7 @@ img {
 }
 .widget_title {
   margin-bottom: 20px;
-  font-family: "Great Vibes", cursive;
+  font-family: "Caveat", cursive;
 }
 .widget_latest-posts .post {
   display: flex;
