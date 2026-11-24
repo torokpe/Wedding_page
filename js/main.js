@@ -9,11 +9,22 @@
     });
 
     document.addEventListener('DOMContentLoaded', function () {
+        const header = document.getElementById('header');
+        if (window.innerWidth <= 575.98 && header) {
+            header.removeAttribute('data-parallax');
+            header.removeAttribute('data-image-src');
+            document.querySelectorAll('.parallax-mirror').forEach(function (mirror) {
+                mirror.remove();
+            });
+        }
+
         const navbar = document.getElementById('navbar');
         const bsOffcanvas = new bootstrap.Offcanvas('#offcanvasNavbar');
 
         window.addEventListener('scroll', function () {
-            if (window.scrollY > 100) {
+            if (window.innerWidth <= 575.98) {
+                document.getElementById('navbar').classList.remove('fixed-top');
+            } else if (window.scrollY > 100) {
                 document.getElementById('navbar').classList.add('fixed-top');
             } else {
                 document.getElementById('navbar').classList.remove('fixed-top');
