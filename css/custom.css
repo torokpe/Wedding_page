@@ -48,6 +48,24 @@
 	#navbar .nav-link.active::after {
 		background-color: #49695C;
 	}
+
+	#offcanvasNavbar,
+	#offcanvasNavbar .offcanvas-header,
+	#offcanvasNavbar .offcanvas-body {
+		background-color: #FFFFFF;
+		color: #49695C;
+	}
+
+	#offcanvasNavbar .offcanvas-title,
+	#offcanvasNavbar .nav-link,
+	#offcanvasNavbar .navbar-nav {
+		color: #49695C !important;
+	}
+
+	#offcanvasNavbar .btn-close {
+		opacity: 1;
+		filter: invert(36%) sepia(11%) saturate(900%) hue-rotate(95deg) brightness(92%) contrast(88%);
+	}
 }
 
 #navbar .nav-link.active::after {
@@ -95,6 +113,14 @@
 .countdown .heading h2,
 #program .heading h2,
 #invitation .heading h2 {
+	color: #49695C;
+}
+
+.countdown .heading h2,
+.countdown .heading p,
+.countdown .timer-item_text,
+.countdown .timer-item .digit,
+.countdown .timer-item .smalltext {
 	color: #49695C;
 }
 
@@ -195,6 +221,10 @@
 	color: #49695C;
 }
 
+#program .timeline-readmore-hidden {
+	display: none;
+}
+
 #program .timeline {
 	display: block;
 }
@@ -225,11 +255,75 @@
 	#program .timeline-badge {
 		left: 50%;
 		margin-left: 0;
+		z-index: 101;
+		border: 8px solid #E9E9E9;
+		border-radius: 50%;
+		background: #E9E9E9;
 	}
 }
 
 #program .accommodation-readmore {
 	margin-top: 1.5em;
+}
+
+.accommodation-page {
+	min-height: calc(100vh - 70px);
+	padding-top: 5rem;
+	padding-bottom: 5rem;
+	background: #FFFFFF;
+}
+
+.accommodation-page .single-post_title {
+	margin-bottom: 1.25rem;
+	color: #49695C;
+	font-family: "Caveat", cursive;
+	font-size: clamp(52px, 8vw, 72px);
+	text-align: center;
+}
+
+.accommodation-page .post-content {
+	max-width: 760px;
+	margin: 0 auto;
+}
+
+.accommodation-page .post-content p {
+	font-size: 18px;
+	line-height: 1.75;
+}
+
+.accommodation-page .post-content .btn {
+	margin-top: 1.25rem;
+}
+
+@media (max-width: 575.98px) {
+	.accommodation-page {
+		padding-top: 3.5rem;
+		padding-bottom: 3.5rem;
+	}
+
+	.accommodation-page .post-content p {
+		font-size: 16px;
+		line-height: 1.7;
+	}
+}
+
+.accommodation-page .post-content p {
+	color: #49695C;
+}
+
+.accommodation-page .post-content .btn {
+	display: table;
+	margin: 1.25rem auto 0;
+	background-color: #49695C;
+	border-color: #49695C;
+	color: #FFFFFF;
+}
+
+.accommodation-page .post-content .btn:hover,
+.accommodation-page .post-content .btn:focus {
+	background-color: #354D42;
+	border-color: #354D42;
+	color: #FFFFFF;
 }
 
 .wedding-contact {
